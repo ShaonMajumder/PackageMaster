@@ -406,9 +406,9 @@ def make_release(release_tag,git_url,github_user,github_pass):
 def upload_to_pypi(pypi_user,pypi_pass):
     
     if platform.system() == 'Linux':
-        commands = """twine upload dist/* --user="""+pypi_user+""" --pass="""+pypi_pass
+        commands = f"""twine upload dist/* -u {pypi_user} -p {pypi_pass}"""
     elif platform.system() == 'Windows':
-        commands = """twine upload dist/* --user="""+pypi_user+""" --pass="""+pypi_pass
+        commands = f"""twine upload dist/* -u {pypi_user} -p {pypi_pass}"""
 
     commands = commands.split("\n")
 
