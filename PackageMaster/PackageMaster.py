@@ -250,7 +250,7 @@ LICENSE
                 input_ = input("Do u want to create package.config "+folder+" (y/n) : ")
                 if input_ == 'y' or input_ == 'Y':
                     github_project_url = input("Enter Github Project url : ")
-                    github_user = input("Enter Github Email : ")
+                    github_user = input("Enter Github User : ")
                     github_pass = input("Enter Github Password : ")
                     pypi_user = input("Enter PyPi User : ")
                     pypi_pass = input("Enter PyPi Password : ")
@@ -430,11 +430,11 @@ def create_dist():
 
 def locally_install():
     if platform.system() == 'Linux':
-        commands = """pip3 uninstall """+package_name+""" -y
-python3 setup.py install"""
+        #commands = """pip3 uninstall """+package_name+""" -y
+        commands = """python3 setup.py install"""
     elif platform.system() == 'Windows':
-        commands = """pip3 uninstall """+package_name+""" -y
-python setup.py install"""
+        #commands = """pip3 uninstall """+package_name+""" -y
+        commands = """python setup.py install"""
 
 
     commands = commands.split("\n")
