@@ -501,7 +501,7 @@ def locally_install():
 def main():
     check_necessary_packages()
     check_necessary_resources()
-    
+
     config_path = os.path.join(os.getcwd(),'private/package.config')
     config = shaonutil.file.read_configuration_ini(config_path)
     package_name = config['PACKAGE']['package_name']
@@ -515,6 +515,9 @@ def main():
     print("Showing Previous Version :",pre_vname)
     new_vname = input("Give    New Version Name : ")
     release_tag = input("Give New Release tag : ")
+
+    config['PACKAGE']['version'] = new_vname
+    shaonutil.file.write_configuration_ini(config,config_path)
 
     changing_version_name(pre_vname,new_vname)
     cleaning_before_commit(package_name)
